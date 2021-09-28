@@ -11,7 +11,7 @@ addons:
   sonarcloud:
     organization: "flaad-enterprises"
     token:
-      secure:  ${SONAR_TOKEN}
+      secure: "c/Du1JPnbQWTNGX1kJOIR1UuWUKY92s5CskpLkdlpRu1geV8QBZgzh7XxwWsNisTzUFm/WDafdr4HHBpmO+jtHJOJ1LWUaW+IOTiFti/IdrXUMGRpN9QzKFUR8vs1aUdtWcEKbXMYZMTWaJkr6fndd+II14W36Se6FisTfsA2IiUtg+Gg8aZ1GmpVoXHTw3gXGNIOTu9l01LhXJ5TY/C8afz7h8eeTVxxXgYe1gcpx3PGnJBdaHsMHVhLo3MoeGcR4qkgDcIFp5XUuXYx22/cZYbcn3cMdHyT6tHEnpXUG4NJCXvkMEfF11W++tjlTME+YPaTjs/SRFpSGcQRcpLXCrzrxFmrugJFXvwhJPbBm25Nd+L7r41weJ466sy8r7WZNJ5ZLX2Q1HeFBPCxwUsTQmnpiW+lbskb1fNJcHTrRCZvgCJoAUNOcnh5Cra5bN8xFBoAjGQYVqLxH9GtBNCnFbC2aihdoi+gwtuz/1P4fkmDZCA+mV6Nb3aBDjR01LM7RCP3d6zVBXUN0Vtecx3qZ7Nmf/IGDgUUyC2O2SC74Z+vBxI44OCcQTBNDvT27nafBK3bZHxw8FyUqCL7I5N9iqaiPQWPHwdusu6fAblsFhgFuzKS7fNGgawhC9m4skKh1LAh4W7pLb2550jZ2r2VfO6I7lNciDrLtPKw6Ptf7w="
 
 install:
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
