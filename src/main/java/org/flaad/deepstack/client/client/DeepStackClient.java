@@ -3,6 +3,7 @@ package org.flaad.deepstack.client.client;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
 import feign.form.spring.SpringFormEncoder;
+import org.flaad.deepstack.client.model.DeepStackFaceDetectionResponse;
 import org.flaad.deepstack.client.model.DeepStackObjectDetectionResponse;
 import org.flaad.deepstack.client.model.DeepStackSceneDetectionResponse;
 import org.springframework.beans.factory.ObjectFactory;
@@ -23,6 +24,9 @@ import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
         path = "${deepstack.api.path}",
         configuration = DeepStackClient.DeepStackClientConfig.class)
 public interface DeepStackClient {
+
+    @PostMapping(path = "/face", consumes = MULTIPART_FORM_DATA_VALUE)
+    DeepStackFaceDetectionResponse faceDetection(@RequestPart("image") MultipartFile image);
 
     @PostMapping(path = "/detection", consumes = MULTIPART_FORM_DATA_VALUE)
     DeepStackObjectDetectionResponse objectDetection(@RequestPart("image") MultipartFile image);

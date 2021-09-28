@@ -1,0 +1,34 @@
+{
+  "predictions": [
+    {
+      "x_max": 712,
+      "y_max": 261,
+      "x_min": 626,
+      "confidence": 0.99990666,
+      "y_min": 145
+    },
+    {
+      "x_max": 620,
+      "y_max": 288,
+      "x_min": 543,
+      "confidence": 0.99986553,
+      "y_min": 174
+    },
+    {
+      "x_max": 810,
+      "y_max": 242,
+      "x_min": 731,
+      "confidence": 0.99986434,
+      "y_min": 163
+    },
+    {
+      "x_max": 542,
+      "y_max": 279,
+      "x_min": 477,
+      "confidence": 0.99899536,
+      "y_min": 197
+    }
+  ],
+  "success": true,
+  "duration": 0
+}

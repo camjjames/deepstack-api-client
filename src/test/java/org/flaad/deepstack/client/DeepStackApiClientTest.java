@@ -3,6 +3,7 @@ package org.flaad.deepstack.client;
 import org.apache.commons.io.IOUtils;
 import org.flaad.deepstack.client.client.DeepStackClient;
 import org.flaad.deepstack.client.config.DeepStackConfig;
+import org.flaad.deepstack.client.model.DeepStackFaceDetectionResponse;
 import org.flaad.deepstack.client.model.DeepStackObjectDetectionResponse;
 import org.flaad.deepstack.client.model.DeepStackSceneDetectionResponse;
 import org.junit.jupiter.api.Test;
@@ -41,11 +42,9 @@ class DeepStackApiClientTest {
     private DeepStackClient dsClient;
 
     @Test
-    void whenGetObjDetection_thenDetectedObjectIsReturned() throws IOException, URISyntaxException {
+    void whenPostObjDetection_thenDetectedObjectIsReturned() throws IOException, URISyntaxException {
         setupWireMock_ObjectDetection("stubs/get-success-object-detection.json");
-
-        DeepStackObjectDetectionResponse response = dsClient.objectDetection(getImage("images/test-image1.jpg"));
-
+        DeepStackObjectDetectionResponse response = dsClient.objectDetection(getImage("images/test-object1.jpg"));
         assertThat(response.isSuccess(), is(true));
         assertThat(response.getDuration(), is(0));
         assertThat(response.getError(), is(nullValue()));
@@ -60,11 +59,9 @@ class DeepStackApiClientTest {
     }
 
     @Test
-    void whenGetObjDetection_thenDetectedObjectFails() throws IOException, URISyntaxException {
+    void whenPostObjDetection_thenDetectedObjectFails() throws IOException, URISyntaxException {
         setupWireMock_ObjectDetection("stubs/get-failed-object-detection.json");
-
-        DeepStackObjectDetectionResponse response = dsClient.objectDetection(getImage("images/test-image1.jpg"));
-
+        DeepStackObjectDetectionResponse response = dsClient.objectDetection(getImage("images/test-object1.jpg"));
         assertThat(response.isSuccess(), is(false));
         assertThat(response.getDuration(), is(0));
         assertThat(response.getPredictions(), is(nullValue()));
@@ -74,23 +71,19 @@ class DeepStackApiClientTest {
 
 
     @Test
-    void whenGetSceneDetection_thenOfficeSceneIsReturned() throws IOException, URISyntaxException {
-        setupWireMock_SceneDetection("stubs/get-success-office-scene-detection.json");
-
-        DeepStackSceneDetectionResponse response = dsClient.sceneDetection(getImage("images/test-image2.jpg"));
-
+    void whenPostSceneDetection_thenOfficeSceneIsReturned() throws IOException, URISyntaxException {
+        setupWireMock_SceneRecognition("stubs/get-success-office-scene-detection.json");
+        DeepStackSceneDetectionResponse response = dsClient.sceneDetection(getImage("images/test-scene1.jpg"));
         assertThat(response.isSuccess(), is(true));
         assertThat(response.getDuration(), is(0));
-        assertThat(response.getConfidence(), is(0.4986186));
+        assertThat(response.getConfidence(), is(0.6666666));
         assertThat(response.getLabel(), is("office_cubicles"));
     }
 
     @Test
-    void whenGetSceneDetection_thenBuildingSceneIsReturned() throws IOException, URISyntaxException {
-        setupWireMock_SceneDetection("stubs/get-success-building-scene-detection.json");
-
-        DeepStackSceneDetectionResponse response = dsClient.sceneDetection(getImage("images/test-image3.jpg"));
-
+    void whenPostSceneDetection_thenBuildingSceneIsReturned() throws IOException, URISyntaxException {
+        setupWireMock_SceneRecognition("stubs/get-success-building-scene-detection.json");
+        DeepStackSceneDetectionResponse response = dsClient.sceneDetection(getImage("images/test-scene2.jpg"));
         assertThat(response.isSuccess(), is(true));
         assertThat(response.getDuration(), is(0));
         assertThat(response.getConfidence(), is(0.4986186));
@@ -98,11 +91,9 @@ class DeepStackApiClientTest {
     }
 
     @Test
-    void whenGetSceneDetection_thenDetectedSceneFails() throws IOException, URISyntaxException {
-        setupWireMock_SceneDetection("stubs/get-failed-scene-detection.json");
-
-        DeepStackSceneDetectionResponse response = dsClient.sceneDetection(getImage("images/test-image1.jpg"));
-
+    void whenPostSceneDetection_thenDetectedSceneFails() throws IOException, URISyntaxException {
+        setupWireMock_SceneRecognition("stubs/get-failed-scene-detection.json");
+        DeepStackSceneDetectionResponse response = dsClient.sceneDetection(getImage("images/test-scene1.jpg"));
         assertThat(response.isSuccess(), is(false));
         assertThat(response.getDuration(), is(0));
         assertThat(response.getError(), is(notNullValue()));
@@ -110,7 +101,47 @@ class DeepStackApiClientTest {
     }
 
 
-    /* Setup the WireMock used for this Test */
+    @Test
+    void whenPostFaceDetection_thenFacesAreReturned() throws IOException, URISyntaxException {
+        setupWireMock_FaceDetection("stubs/get-success-face-detection.json");
+        DeepStackFaceDetectionResponse response = dsClient.faceDetection(getImage("images/test-face1.jpg"));
+        assertThat(response.isSuccess(), is(true));
+        assertThat(response.getDuration(), is(0));
+        assertThat(response.getError(), is(nullValue()));
+        assertThat(response.getPredictions(), is(notNullValue()));
+        assertThat(response.getPredictions().length, is(4));
+        assertThat(response.getPredictions()[0].getConfidence(), is(0.99990666));
+        assertThat(response.getPredictions()[0].getYMin(), is(145));
+        assertThat(response.getPredictions()[0].getXMin(), is(626));
+        assertThat(response.getPredictions()[0].getYMax(), is(261));
+        assertThat(response.getPredictions()[0].getXMax(), is(712));
+    }
+
+    @Test
+    void whenPostFaceDetection_thenFaceDetectionFails() throws IOException, URISyntaxException {
+        setupWireMock_FaceDetection("stubs/get-failed-face-detection.json");
+        DeepStackFaceDetectionResponse response = dsClient.faceDetection(getImage("images/test-face1.jpg"));
+        assertThat(response.isSuccess(), is(false));
+        assertThat(response.getDuration(), is(0));
+        assertThat(response.getPredictions(), is(nullValue()));
+        assertThat(response.getError(), is(notNullValue()));
+        assertThat(response.getError(), is("No valid image file found"));
+    }
+
+
+
+    /* set up the WireMock for face detection */
+    private void setupWireMock_FaceDetection(String location) throws IOException {
+        stubFor(post(urlEqualTo("/v1/vision/face"))
+                .withHeader("Content-Type", containing("multipart/form-data; charset=UTF-8;"))
+                .withMultipartRequestBody(aMultipart())
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
+                        .withBody(read(location))));
+    }
+
+    /* set up the WireMock for object detection */
     private void setupWireMock_ObjectDetection(String location) throws IOException {
         stubFor(post(urlEqualTo("/v1/vision/detection"))
                 .withHeader("Content-Type", containing("multipart/form-data; charset=UTF-8;"))
@@ -121,8 +152,8 @@ class DeepStackApiClientTest {
                         .withBody(read(location))));
     }
 
-    /* Setup the WireMock used for this Test */
-    private void setupWireMock_SceneDetection(String location) throws IOException {
+    /* set up the WireMock for object recognition */
+    private void setupWireMock_SceneRecognition(String location) throws IOException {
         stubFor(post(urlEqualTo("/v1/vision/scene"))
                 .withHeader("Content-Type", containing("multipart/form-data; charset=UTF-8;"))
                 .withMultipartRequestBody(aMultipart())
@@ -131,6 +162,7 @@ class DeepStackApiClientTest {
                         .withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
                         .withBody(read(location))));
     }
+
 
     /* Read a file from the filesystem and return its contents as a String */
     private String read(String location) throws IOException {

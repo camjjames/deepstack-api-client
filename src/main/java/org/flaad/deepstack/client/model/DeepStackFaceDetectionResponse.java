@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @JsonDeserialize
-public class DeepStackObjectDetectionResponse {
+public class DeepStackFaceDetectionResponse {
 
     boolean success;
     int duration;
@@ -21,7 +21,6 @@ public class DeepStackObjectDetectionResponse {
     @NoArgsConstructor
     @JsonDeserialize
     public static class Predictions {
-        String label;
         double confidence;
         @JsonProperty("y_min")
         int yMin;
