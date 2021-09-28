@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.5</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>org.flaad</groupId>
+    <artifactId>deepstack-api-client</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>Deepstack API Client</name>
+    <description>DeepsackAI API client</description>
+
+    <organization>
+        <name>Flaad Enterprises</name>
+        <url>https://flaad.org/</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <url>https://gitlab.com/cam.james/deepstack/issues</url>
+        <system>GitLab</system>
+    </issueManagement>
+
+    <scm>
+        <url>https://gitlab.com/cam.james/deepstack</url>
+        <connection>scm:git:git://gitlab.com/cam.james/deepstack.git</connection>
+        <developerConnection>scm:git:git@gitlab.com:cam.james/deepstack.git</developerConnection>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <java.version>17</java.version>
+        <java.showDeprecation>true</java.showDeprecation>
+        <java.showWarnings>true</java.showWarnings>
+        <java.optimize>true</java.optimize>
+        <java.debug>false</java.debug>
+
+        <!-- Library Versions -->
+        <assertj.version>3.15.0</assertj.version>
+        <commons-io.version>2.6</commons-io.version>
+        <feign-jackson.version>11.6</feign-jackson.version>
+        <lombok.version>1.18.20</lombok.version>
+        <spring-boot.version>2.5.5</spring-boot.version>
+        <spring-cloud.version>2020.0.4</spring-cloud.version>
+        <spring-cloud-openfeign.version>3.0.3</spring-cloud-openfeign.version>
+        <wiremock.version>2.26.3</wiremock.version>
+
+        <!-- Build Properties -->
+        <maven.version>3.5.0</maven.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <enforcer.requireReleaseDeps.onlyWhenRelease>true</enforcer.requireReleaseDeps.onlyWhenRelease>
+        <enforcer.searchTransitive>true</enforcer.searchTransitive>
+
+        <checkstyle.version>8.36.2</checkstyle.version>
+        <spring-javaformat-checkstyle.version>0.0.28</spring-javaformat-checkstyle.version>
+
+        <git-commit-maven.plugin>3.0.1</git-commit-maven.plugin>
+        <exec-maven.plugin>1.6.0</exec-maven.plugin>
+        <maven-checkstyle.plugin>3.1.1</maven-checkstyle.plugin>
+        <maven-dependency.plugin>3.2.0</maven-dependency.plugin>
+        <maven-jacoco.plugin>0.8.7</maven-jacoco.plugin>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <sonar-maven.plugin>3.7.0.1746</sonar-maven.plugin>
+        <sonar.projectKey>net.flaad:deepstack-client-api</sonar.projectKey>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>spring-milestone</id>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <url>https://repo.spring.io/milestone</url>
+        </repository>
+    </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring framework -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- Spring Dependencies -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>${spring-cloud-openfeign.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Third Party -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.mapstruct</groupId>-->
+<!--            <artifactId>mapstruct</artifactId>-->
+<!--            <version>${mapstruct.version}</version>-->
+<!--        </dependency>-->
+
+        <!-- Testing -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-contract-stub-runner</artifactId>
+            <version>3.0.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock</artifactId>
+            <version>${wiremock.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <optimize>${java.optimize}</optimize>
+                    <debug>${java.debug}</debug>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <showDeprecation>${java.showDeprecation}</showDeprecation>
+                    <showWarnings>${java.showWarnings}</showWarnings>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${maven-jacoco.plugin}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <rule>
+                                    <element>PACKAGE</element>
+                                    <limits>
+                                        <limit>
+                                            <counter>LINE</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>0.50</minimum>
+                                        </limit>
+                                    </limits>
+                                </rule>
+                            </rules>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>${sonar-maven.plugin}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${maven-enforcer-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>default-cli</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>${maven.version}</version>
+                                </requireMavenVersion>
+                                <requireJavaVersion>
+                                    <version>${java.version}</version>
+                                </requireJavaVersion>
+                                <requireNoRepositories>
+                                    <allowedRepositories>
+                                        <id>spring-milestone</id>
+                                        <id>projectlombok.org</id>
+                                    </allowedRepositories>
+                                    <allowedPluginRepositories>
+                                        <id>spring-milestone</id>
+                                        <id>projectlombok.org</id>
+                                    </allowedPluginRepositories>
+                                </requireNoRepositories>
+                                <requireReleaseDeps>
+                                    <message>No Snapshots Allowed in releases!</message>
+                                    <onlyWhenRelease>${enforcer.requireReleaseDeps.onlyWhenRelease}
+                                    </onlyWhenRelease>
+                                </requireReleaseDeps>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>${maven-dependency.plugin}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${maven-checkstyle.plugin}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>${checkstyle.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>io.spring.javaformat</groupId>
+                        <artifactId>spring-javaformat-checkstyle</artifactId>
+                        <version>${spring-javaformat-checkstyle.version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>checkstyle-validation</id>
+                        <phase>validate</phase>
+                        <inherited>true</inherited>
+                        <configuration>
+                            <configLocation>io/spring/javaformat/checkstyle/checkstyle.xml</configLocation>
+                            <includeTestSourceDirectory>false</includeTestSourceDirectory>
+                            <skip>true</skip>
+                        </configuration>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
+
+</project>

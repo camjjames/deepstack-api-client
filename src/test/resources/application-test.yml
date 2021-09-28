@@ -1,0 +1,11 @@
+logging:
+  level:
+    root: INFO
+    org.flaad.deepstack.client: DEBUG
+    com.github.tomakehurst.wiremock: DEBUG
+
+deepstack:
+  api:
+    name: deepstack
+    url: http://localhost:9561
+    path: /v1/vision/

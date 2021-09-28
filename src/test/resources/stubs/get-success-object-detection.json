@@ -1,0 +1,22 @@
+{
+  "success": true,
+  "predictions": [
+    {
+      "confidence": 0.8618164,
+      "label": "person",
+      "y_min": 62,
+      "x_min": 197,
+      "y_max": 607,
+      "x_max": 386
+    },
+    {
+      "confidence": 0.90966797,
+      "label": "person",
+      "y_min": 85,
+      "x_min": 687,
+      "y_max": 496,
+      "x_max": 837
+    }
+  ],
+  "duration": 0
+}
