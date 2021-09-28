@@ -10,8 +10,7 @@ cache:
 addons:
   sonarcloud:
     organization: "flaad-enterprises"
-    token:
-      secure: $SONAR_TOKEN
+    token: $SONAR_TOKEN
 
 install:
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
