@@ -3,7 +3,7 @@ Spring boot openfeign library to be able to interact with deepstackAI
 
 ### Status
 
-[![Build Status](https://app.travis-ci.com/flaad/deepstack-api-client.svg?branch=main&status=passed)](https://app.travis-ci.com/github/flaad/deepstack-api-client)
+[![CircleCI](https://circleci.com/gh/flaad/deepstack-api-client/tree/main.svg?style=svg)](https://circleci.com/gh/flaad/deepstack-api-client/tree/main)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=net.flaad%3Adeepstack-client-api&metric=alert_status)](https://sonarcloud.io/dashboard?id=net.flaad%3Adeepstack-client-api)
 
 ### SonarCloud
