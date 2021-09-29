@@ -14,8 +14,9 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
+    <url>https://flaad.org/</url>
     <name>Deepstack API Client</name>
-    <description>DeepsackAI API client</description>
+    <description>DeepstackAI API client</description>
 
     <organization>
         <name>Flaad Enterprises</name>
