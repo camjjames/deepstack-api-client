@@ -22,7 +22,10 @@ jobs:
 #      - run:
 #          name: Test
 #          command: mvn sonar:sonar
-      - sonarcloud/scan
+      - sonarcloud/scan:
+          sonar_token_variable_name: SONAR_TOKEN
+          cache_version: 1
+      - store_test_results
 
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.2
