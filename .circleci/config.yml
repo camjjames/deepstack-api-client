@@ -35,4 +35,4 @@ workflows:
   main:
     jobs:
       - build:
-          context: flaad-enterprises
+          context: flaadenterprises
