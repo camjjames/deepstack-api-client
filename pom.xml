@@ -31,14 +31,19 @@
     </licenses>
 
     <issueManagement>
-        <url>https://gitlab.com/cam.james/deepstack/issues</url>
-        <system>GitLab</system>
+        <system>GitHub issues</system>
+        <url>https://github.com/flaad/deepstack-api-client/issues</url>
     </issueManagement>
 
+    <ciManagement>
+        <system>Travis CI</system>
+        <url>https://app.travis-ci.com/github/flaad/deepstack-api-client</url>
+    </ciManagement>
+
     <scm>
-        <url>https://gitlab.com/cam.james/deepstack</url>
-        <connection>scm:git:git://gitlab.com/cam.james/deepstack.git</connection>
-        <developerConnection>scm:git:git@gitlab.com:cam.james/deepstack.git</developerConnection>
+        <url>https://github.com/flaad/deepstack-api-client</url>
+        <connection>scm:git:git://github.com:flaad/deepstack-api-client.git</connection>
+        <developerConnection>scm:git:git://github.com:flaad/deepstack-api-client.git</developerConnection>
     </scm>
 
     <properties>
@@ -144,11 +149,6 @@
             <artifactId>commons-io</artifactId>
             <version>${commons-io.version}</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.mapstruct</groupId>-->
-<!--            <artifactId>mapstruct</artifactId>-->
-<!--            <version>${mapstruct.version}</version>-->
-<!--        </dependency>-->
 
         <!-- Testing -->
         <dependency>
