@@ -85,7 +85,17 @@
         <maven-jacoco.plugin>0.8.7</maven-jacoco.plugin>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <sonar-maven.plugin>3.7.0.1746</sonar-maven.plugin>
+
+        <sonar.organization>flaad-enterprises</sonar.organization>
         <sonar.projectKey>net.flaad:deepstack-client-api</sonar.projectKey>
+        <sonar.language>java</sonar.language>
+        <sonar.java.source>17</sonar.java.source>
+        <sonar.tests>src/test/java</sonar.tests>
+        <sonar.sources>src/main/java</sonar.sources>
+        <sonar.java.binaries>target/classes</sonar.java.binaries>
+        <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
+        <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+        <sonar.junit.reportsPath>target/surefire-reports/TEST-*.xml</sonar.junit.reportsPath>
     </properties>
 
     <repositories>
