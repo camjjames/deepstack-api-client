@@ -26,6 +26,14 @@ jobs:
           sonar_token_variable_name: SONAR_TOKEN
           cache_version: 1
 
+      # Save artifacts
+      - store_artifacts:
+          path: /target
+
+      # Upload test results
+      - store_test_results:
+          path: /target/surefire-reports
+
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.2
 
