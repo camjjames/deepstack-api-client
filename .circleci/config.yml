@@ -18,10 +18,10 @@ jobs:
       - run:
           name: Build
           command: mvn -B -V -DskipTests clean package
-      # Then run your tests!
-      - run:
-          name: Test
-          command: mvn org.jacoco:jacoco-maven-plugin:prepare-agent package org.jacoco:jacoco-maven-plugin:report
+#      # Then run your tests!
+#      - run:
+#          name: Test
+#          command: mvn sonar:sonar
       - sonarcloud/scan
 
 orbs:
