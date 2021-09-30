@@ -61,11 +61,12 @@
         <assertj.version>3.15.0</assertj.version>
         <commons-io.version>2.6</commons-io.version>
         <feign-jackson.version>11.6</feign-jackson.version>
+        <feign-okhttp.version>11.6</feign-okhttp.version>
         <lombok.version>1.18.20</lombok.version>
         <spring-boot.version>2.5.5</spring-boot.version>
         <spring-cloud.version>2020.0.4</spring-cloud.version>
         <spring-cloud-openfeign.version>3.0.3</spring-cloud-openfeign.version>
-        <wiremock.version>2.26.3</wiremock.version>
+        <wiremock.version>2.27.2</wiremock.version>
 
         <!-- Build Properties -->
         <maven.version>3.5.0</maven.version>
@@ -137,8 +138,14 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-okhttp</artifactId>
+            <version>${feign-okhttp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-jackson</artifactId>
+            <version>${feign-jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -215,7 +222,7 @@
                                         <limit>
                                             <counter>LINE</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.50</minimum>
+                                            <minimum>0.10</minimum>
                                         </limit>
                                     </limits>
                                 </rule>

@@ -4,11 +4,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Getter
+@ToString
 @NoArgsConstructor
 @JsonDeserialize
-public class DeepStackFaceDetectionResponse {
+public class FaceDetectionResponse {
 
     boolean success;
     int duration;
@@ -18,6 +20,7 @@ public class DeepStackFaceDetectionResponse {
     String error;
 
     @Getter
+    @ToString
     @NoArgsConstructor
     @JsonDeserialize
     public static class Predictions {

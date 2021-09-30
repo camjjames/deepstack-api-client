@@ -1,3 +1,14 @@
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: FULL
+        followRedirects: false
+  okhttp:
+    enabled: true
+
 logging:
   level:
     root: INFO
