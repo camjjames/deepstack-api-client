@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @JsonDeserialize
-public class SceneDetectionResponse extends DeepStackResponse {
+public class FaceRegisterResponse extends DeepStackResponse {
 
-    String label;
-    double confidence;
+    String message;
 
 }

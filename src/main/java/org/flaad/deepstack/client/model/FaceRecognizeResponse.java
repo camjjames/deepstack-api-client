@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @JsonDeserialize
-public class FaceDetectionResponse extends DeepStackResponse {
+public class FaceRecognizeResponse extends DeepStackResponse {
 
     Predictions[] predictions;
 
@@ -16,6 +16,8 @@ public class FaceDetectionResponse extends DeepStackResponse {
     @NoArgsConstructor
     @JsonDeserialize
     public static class Predictions {
+        @JsonProperty("userid")
+        String userId;
         double confidence;
         @JsonProperty("y_min")
         int yMin;

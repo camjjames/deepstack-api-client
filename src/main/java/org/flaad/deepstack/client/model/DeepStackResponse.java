@@ -7,9 +7,11 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @JsonDeserialize
-public class SceneDetectionResponse extends DeepStackResponse {
+public class DeepStackResponse {
 
-    String label;
-    double confidence;
+    boolean success;
+    int duration;
 
+    // Error is optional, only returned when an error occurs
+    String error;
 }

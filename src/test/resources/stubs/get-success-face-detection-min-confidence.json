@@ -13,20 +13,6 @@
       "x_min": 543,
       "confidence": 0.99986553,
       "y_min": 174
-    },
-    {
-      "x_max": 810,
-      "y_max": 242,
-      "x_min": 731,
-      "confidence": 0.60000000,
-      "y_min": 163
-    },
-    {
-      "x_max": 542,
-      "y_max": 279,
-      "x_min": 477,
-      "confidence": 0.70654323,
-      "y_min": 197
     }
   ],
   "success": true,

@@ -1,0 +1,14 @@
+{
+  "success": true,
+  "predictions": [
+    {
+      "confidence": 1,
+      "userid": "Daniel Andrews",
+      "y_min": 24,
+      "x_min": 104,
+      "y_max": 461,
+      "x_max": 451
+    }
+  ],
+  "duration": 0
+}

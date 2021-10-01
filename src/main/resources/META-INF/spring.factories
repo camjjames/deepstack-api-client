@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.flaad.deepstack.client.config.SpringDeepStackAutoConfiguration
