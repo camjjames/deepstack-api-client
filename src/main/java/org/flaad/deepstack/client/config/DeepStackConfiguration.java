@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Setter
 @Configuration
 @NoArgsConstructor
-public class SpringDeepStackAutoConfiguration {
+public class DeepStackConfiguration {
 
     @Configuration
     @EnableFeignClients(clients = DeepStackClient.class)

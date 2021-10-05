@@ -2,7 +2,7 @@ package org.flaad.deepstack.client;
 
 import org.apache.commons.io.IOUtils;
 import org.flaad.deepstack.client.client.DeepStackClient;
-import org.flaad.deepstack.client.config.SpringDeepStackAutoConfiguration;
+import org.flaad.deepstack.client.config.DeepStackConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,7 +25,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 @ActiveProfiles("test")
 @EnableAutoConfiguration
 @AutoConfigureWireMock(port = DeepStackApiClient.port)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = { SpringDeepStackAutoConfiguration.class })
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = { DeepStackConfiguration.class })
 class DeepStackApiClient {
 
     public static final int port = 9561;
