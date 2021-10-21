@@ -12,7 +12,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @JsonDeserialize
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Predictions {
+public class Prediction {
 
     @JsonProperty("label")
     String label;

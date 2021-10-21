@@ -13,6 +13,6 @@ import java.util.List;
 @JsonDeserialize
 public class FaceDetectionResponse extends DeepStackResponse {
 
-    List<Predictions> predictions;
+    List<Prediction> predictions;
 
 }
