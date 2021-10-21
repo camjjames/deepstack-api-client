@@ -22,12 +22,12 @@ class FaceDetectionApiClientTest extends DeepStackApiClient {
         assertThat(response.getDuration(), is(0));
         assertThat(response.getError(), is(nullValue()));
         assertThat(response.getPredictions(), is(notNullValue()));
-        assertThat(response.getPredictions().length, is(4));
-        assertThat(response.getPredictions()[0].getConfidence(), is(0.99990666));
-        assertThat(response.getPredictions()[0].getYMin(), is(145));
-        assertThat(response.getPredictions()[0].getXMin(), is(626));
-        assertThat(response.getPredictions()[0].getYMax(), is(261));
-        assertThat(response.getPredictions()[0].getXMax(), is(712));
+        assertThat(response.getPredictions().size(), is(4));
+        assertThat(response.getPredictions().get(0).getConfidence(), is(0.99990666));
+        assertThat(response.getPredictions().get(0).getYMin(), is(145));
+        assertThat(response.getPredictions().get(0).getXMin(), is(626));
+        assertThat(response.getPredictions().get(0).getYMax(), is(261));
+        assertThat(response.getPredictions().get(0).getXMax(), is(712));
     }
 
     @Test
@@ -38,7 +38,7 @@ class FaceDetectionApiClientTest extends DeepStackApiClient {
         assertThat(response.getDuration(), is(0));
         assertThat(response.getError(), is(nullValue()));
         assertThat(response.getPredictions(), is(notNullValue()));
-        assertThat(response.getPredictions().length, is(2));
+        assertThat(response.getPredictions().size(), is(2));
     }
 
     @Test

@@ -22,13 +22,13 @@ class ObjectDetectionApiClientTest extends DeepStackApiClient {
         assertThat(response.getDuration(), is(0));
         assertThat(response.getError(), is(nullValue()));
         assertThat(response.getPredictions(), is(notNullValue()));
-        assertThat(response.getPredictions().length, is(2));
-        assertThat(response.getPredictions()[0].getLabel(), is("person"));
-        assertThat(response.getPredictions()[0].getConfidence(), is(0.8618164));
-        assertThat(response.getPredictions()[0].getYMin(), is(62));
-        assertThat(response.getPredictions()[0].getXMin(), is(197));
-        assertThat(response.getPredictions()[0].getYMax(), is(607));
-        assertThat(response.getPredictions()[0].getXMax(), is(386));
+        assertThat(response.getPredictions().size(), is(2));
+        assertThat(response.getPredictions().get(0).getLabel(), is("person"));
+        assertThat(response.getPredictions().get(0).getConfidence(), is(0.8618164));
+        assertThat(response.getPredictions().get(0).getYMin(), is(62));
+        assertThat(response.getPredictions().get(0).getXMin(), is(197));
+        assertThat(response.getPredictions().get(0).getYMax(), is(607));
+        assertThat(response.getPredictions().get(0).getXMax(), is(386));
     }
 
     @Test

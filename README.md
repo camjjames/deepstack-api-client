@@ -11,7 +11,7 @@ This library is for Spring boot applications that require access to [DeepStackAI
 
 ## Features
 This library handles the following API endpoints for Deepstack
-* Face Detection, Face recognition, face registration
+* Face Detection, Face Recognition, Face Registration
 * Object Detection
 * Scene Detection
 
