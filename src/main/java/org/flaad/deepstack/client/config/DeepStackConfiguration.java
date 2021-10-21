@@ -1,6 +1,5 @@
 package org.flaad.deepstack.client.config;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Getter
 @Setter
 @Configuration
-@NoArgsConstructor (access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 public class DeepStackConfiguration {
 
     @Configuration
