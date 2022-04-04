@@ -27,7 +27,6 @@ public interface DeepStackClient {
     @PostMapping(path = "/face/recognize", consumes = MULTIPART_FORM_DATA_VALUE)
     FaceRecognizeResponse faceRecognize(@RequestPart("image") MultipartFile image);
 
-
     @PostMapping(path = "/detection", consumes = MULTIPART_FORM_DATA_VALUE)
     ObjectDetectionResponse objectDetection(@RequestPart("image") MultipartFile image);
 
