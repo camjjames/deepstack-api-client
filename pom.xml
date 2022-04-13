@@ -72,16 +72,16 @@
         <enforcer.requireReleaseDeps.onlyWhenRelease>true</enforcer.requireReleaseDeps.onlyWhenRelease>
         <enforcer.searchTransitive>true</enforcer.searchTransitive>
 
-        <checkstyle.version>9.3</checkstyle.version>
+        <checkstyle.version>10.1</checkstyle.version>
         <spring-javaformat-checkstyle.version>0.0.31</spring-javaformat-checkstyle.version>
 
         <git-commit-maven.plugin>3.0.1</git-commit-maven.plugin>
         <exec-maven.plugin>1.6.0</exec-maven.plugin>
         <maven-checkstyle.plugin>3.1.2</maven-checkstyle.plugin>
-        <maven-dependency.plugin>3.2.0</maven-dependency.plugin>
-        <maven-jacoco.plugin>0.8.7</maven-jacoco.plugin>
+        <maven-dependency.plugin>3.3.0</maven-dependency.plugin>
+        <maven-jacoco.plugin>0.8.8</maven-jacoco.plugin>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-        <sonar-maven.plugin>3.9.0.2155</sonar-maven.plugin>
+        <sonar-maven.plugin>3.9.1.2184</sonar-maven.plugin>
         <dependency-check-maven.version>6.5.0</dependency-check-maven.version>
     </properties>
 
