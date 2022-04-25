@@ -154,25 +154,6 @@
 
     <build>
         <plugins>
-<!--            <plugin>-->
-<!--                <groupId>org.owasp</groupId>-->
-<!--                <artifactId>dependency-check-maven</artifactId>-->
-<!--                <version>${dependency-check-maven.version}</version>-->
-<!--                <configuration>-->
-<!--                    <formats>-->
-<!--                        <format>html</format>-->
-<!--                        <format>json</format>-->
-<!--                    </formats>-->
-<!--                    <skipTestScope>true</skipTestScope>-->
-<!--                </configuration>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>check</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
