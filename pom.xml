@@ -72,7 +72,7 @@
         <enforcer.requireReleaseDeps.onlyWhenRelease>true</enforcer.requireReleaseDeps.onlyWhenRelease>
         <enforcer.searchTransitive>true</enforcer.searchTransitive>
 
-        <checkstyle.version>10.3.1</checkstyle.version>
+        <checkstyle.version>10.3.2</checkstyle.version>
         <spring-javaformat-checkstyle.version>0.0.34</spring-javaformat-checkstyle.version>
 
         <git-commit-maven.plugin>3.0.1</git-commit-maven.plugin>
