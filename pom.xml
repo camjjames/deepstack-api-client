@@ -3,14 +3,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>net.flaad</groupId>
-        <artifactId>surveillance-system</artifactId>
-        <version>1.0.0</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.0.2</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>org.flaad</groupId>
     <artifactId>deepstack-api-client</artifactId>
-    <version>1.2.0</version>
+    <version>1.3.0</version>
     <packaging>jar</packaging>
 
     <url>https://flaad.org/</url>
@@ -55,6 +56,33 @@
         <java.showWarnings>true</java.showWarnings>
         <java.optimize>true</java.optimize>
         <java.debug>false</java.debug>
+
+        <!-- Library Versions -->
+        <commons-io.version>2.11.0</commons-io.version>
+        <feign-jackson.version>12.1</feign-jackson.version>
+        <spring-cloud-openfeign.version>4.0.0</spring-cloud-openfeign.version>
+        <spring-cloud-starter-contract-stub-runner.version>4.0.0</spring-cloud-starter-contract-stub-runner.version>
+        <wiremock.version>2.27.2</wiremock.version>
+
+        <!-- Build Properties -->
+        <maven.version>3.5.0</maven.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <enforcer.requireReleaseDeps.onlyWhenRelease>true</enforcer.requireReleaseDeps.onlyWhenRelease>
+        <enforcer.searchTransitive>true</enforcer.searchTransitive>
+
+        <checkstyle.version>10.6.0</checkstyle.version>
+        <spring-javaformat-checkstyle.version>0.0.35</spring-javaformat-checkstyle.version>
+
+        <git-commit-maven.plugin>3.0.1</git-commit-maven.plugin>
+        <exec-maven.plugin>1.6.0</exec-maven.plugin>
+        <maven-checkstyle.plugin>3.1.2</maven-checkstyle.plugin>
+        <maven-dependency.plugin>3.3.0</maven-dependency.plugin>
+        <maven-jacoco.plugin>0.8.8</maven-jacoco.plugin>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <sonar-maven.plugin>3.9.1.2184</sonar-maven.plugin>
+        <dependency-check-maven.version>6.5.0</dependency-check-maven.version>
     </properties>
 
     <repositories>
@@ -84,6 +112,10 @@
                     <artifactId>bcprov-jdk15on</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
         </dependency>
 
         <!-- Third Party -->
