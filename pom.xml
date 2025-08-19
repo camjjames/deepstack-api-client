@@ -51,7 +51,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <java.version>17</java.version>
+        <java.version>23</java.version>
         <java.showDeprecation>true</java.showDeprecation>
         <java.showWarnings>true</java.showWarnings>
         <java.optimize>true</java.optimize>
