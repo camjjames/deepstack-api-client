@@ -9,17 +9,17 @@ Always reference these instructions first and fallback to search or bash command
 ### Bootstrap, build, and test the repository:
 - Ensure Java 17 is available: `java -version` (should show OpenJDK 17+)
 - Use system Maven (Maven wrapper is incomplete): `mvn -version` (should show Apache Maven 3.6+)
-- Clean compile: `mvn clean compile` -- takes 70 seconds on first run (dependencies download). NEVER CANCEL. Set timeout to 120+ seconds.
-- Full build: `mvn clean package` -- takes 15 seconds after initial setup. NEVER CANCEL. Set timeout to 60+ seconds.
-- Run tests: `mvn test` -- takes 28 seconds (14 tests). NEVER CANCEL. Set timeout to 60+ seconds.
-- Full install: `mvn clean install` -- takes 14 seconds after initial setup. NEVER CANCEL. Set timeout to 60+ seconds.
-- Full verification: `mvn verify` -- includes all above plus jacoco coverage. NEVER CANCEL. Set timeout to 60+ seconds.
+- Clean compile: `mvn clean compile` -- takes 90 seconds on first run (dependencies download). NEVER CANCEL. Set timeout to 180+ seconds.
+- Full build: `mvn clean package` -- takes 30 seconds after initial setup. NEVER CANCEL. Set timeout to 120+ seconds.
+- Run tests: `mvn test` -- takes 11 seconds (14 tests). NEVER CANCEL. Set timeout to 60+ seconds.
+- Full install: `mvn clean install` -- takes 15 seconds after initial setup. NEVER CANCEL. Set timeout to 60+ seconds.
+- Full verification: `mvn verify` -- takes 12 seconds, includes all above plus jacoco coverage. NEVER CANCEL. Set timeout to 60+ seconds.
 
 ### Important build notes:
 - **DO NOT** use `./mvnw` - the Maven wrapper is incomplete and missing required files
 - **ALWAYS** use system `mvn` command instead
-- The first build takes longer due to dependency downloads (~70 seconds)
-- Subsequent builds are much faster (~15 seconds)
+- The first build takes longer due to dependency downloads (~90 seconds)
+- Subsequent builds are much faster (~30 seconds)
 
 ## Validation
 
@@ -132,7 +132,7 @@ src/test/resources/
 - **Maven wrapper fails**: Use system `mvn` instead of `./mvnw`
 - **Build fails on checkstyle**: This is expected - checkstyle is skipped by default
 - **Tests fail due to port conflicts**: WireMock uses fixed port 9561 - ensure it's available
-- **Slow initial build**: First build downloads dependencies (~70 seconds) - this is normal
+- **Slow initial build**: First build downloads dependencies (~90 seconds) - this is normal
 
 ### Manual validation workflow:
 1. Run full build: `mvn clean package`
