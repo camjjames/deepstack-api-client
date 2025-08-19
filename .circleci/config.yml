@@ -27,7 +27,7 @@ jobs:
           path: /target/surefire-reports
 
 orbs:
-  sonarcloud: sonarsource/sonarcloud@1.1.1
+  sonarcloud: sonarsource/sonarcloud@3.0.0
 
 workflows:
   main:
