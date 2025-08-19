@@ -54,7 +54,6 @@
         <java.version>17</java.version>
         <java.showDeprecation>true</java.showDeprecation>
         <java.showWarnings>true</java.showWarnings>
-        <java.optimize>true</java.optimize>
         <java.debug>false</java.debug>
 
         <!-- Library Versions -->
@@ -82,7 +81,7 @@
         <maven-jacoco.plugin>0.8.13</maven-jacoco.plugin>
         <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
         <sonar-maven.plugin>5.1.0.4751</sonar-maven.plugin>
-        <dependency-check-maven.version>6.5.0</dependency-check-maven.version>
+        <maven-enforcer-plugin.version>3.4.1</maven-enforcer-plugin.version>
     </properties>
 
     <repositories>
@@ -169,7 +168,6 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <optimize>${java.optimize}</optimize>
                     <debug>${java.debug}</debug>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
